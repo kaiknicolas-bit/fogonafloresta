@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fogo na Floresta: Suas Escolhas Salvam o Planeta</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e6f4ea;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+  }
+  #game {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+</style>
+</head>
+<body>
+  <div id="game">
+    <h1>🔥 Fogo na Floresta 🔥</h1>
+    <img id="scene-img" src="https://cdn.pixabay.com/photo/2017/09/16/16/09/forest-2757646_1280.jpg" alt="Floresta viva">
+    <p id="story">Você é <strong>Ana</strong>, uma jovem que vive perto da floresta amazônica. Um dia, você nota uma fumaça subindo entre as árvores. O que você faz?</p>
+    <button onclick="choose('avisar')">Avisar os bombeiros</button>
+    <button onclick="choose('ignorar')">Ignorar e seguir seu caminho</button>
+  </div>
+
+<script>
+function choose(option) {
+  const story = document.getElementById('story');
+  const img = document.getElementById('scene-img');
+  const game = document.getElementById('game');
+
+  if (option === 'avisar') {
+    story.innerHTML = 'Você liga para os bombeiros e alerta os vizinhos. Logo, o fogo é controlado e a floresta é salva! 🌳💚 Depois disso, você encontra um filhote de tamanduá assustado. O que você faz?';
+    img.src = 'https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297_1280.jpg';
+    game.innerHTML = `
+      <h1>🔥 Fogo na Floresta 🔥</h1>
+      <img id="scene-img" src="${img.src}" alt="Floresta salva">
+      <p id="story">${story.innerHTML}</p>
+      <button onclick="choose('ajudarAnimal')">Ajudar o animal e levá-lo ao abrigo</button>
+      <button onclick="choose('deixarAnimal')">Deixar o animal na floresta</button>
+    `;
+  }
+
+  else if (option === 'ignorar') {
+    story.innerHTML = 'Você decide não se envolver, mas o fogo se espalha rapidamente. A floresta sofre grandes perdas e os animais fogem. 😢 Um fazendeiro aparece tentando apagar o fogo sozinho. O que você faz?';
+    img.src = 'https://cdn.pixabay.com/photo/2016/11/29/03/53/forest-fire-1868570_1280.jpg';
+    game.innerHTML = `
+      <h1>🔥 Fogo na Floresta 🔥</h1>
+      <img id="scene-img" src="${img.src}" alt="Fogo intenso">
+      <p id="story">${story.innerHTML}</p>
+      <button onclick="choose('ajudarFazendeiro')">Ajudar o fazendeiro a apagar o fogo</button>
+      <button onclick="choose('fugir')">Fugir do local</button>
+    `;
+  }
+
+  else if (option === 'ajudarAnimal') {
+    story.innerHTML = 'Você leva o filhote até um abrigo de animais e ajuda os voluntários. A floresta começa a se recuperar e a vida volta ao normal! 🐾🌿';
+    img.src = 'https://cdn.pixabay.com/photo/2018/02/23/21/44/forest-3176493_1280.jpg';
+    game.innerHTML = `
+      <h1>🌎 Final Feliz 🌎</h1>
+      <img src="${img.src}" alt="Floresta saudável">
+      <p>${story.innerHTML}</p>
+      <p><strong>Mensagem:</strong> Cuidar da natureza é cuidar de todos os seres vivos!</p>
+    `;
+  }
+
+  else if (option === 'deixarAnimal') {
+    story.innerHTML = 'Você segue seu caminho, mas o filhote acaba se perdendo. Dias depois, você se sente culpada por não ter ajudado. 😔';
+    img.src = 'https://cdn.pixabay.com/photo/2019/11/21/18/16/forest-4642993_1280.jpg';
+    game.innerHTML = `
+      <h1>🌿 Final Neutro 🌿</h1>
+      <img src="${img.src}" alt="Floresta silenciosa">
+      <p>${story.innerHTML}</p>
+      <p><strong>Mensagem:</strong> Mesmo pequenas ações fazem diferença!</p>
+    `;
+  }
+
+  else if (option === 'ajudarFazendeiro') {
+    story.innerHTML = 'Vocês trabalham juntos e conseguem conter parte do incêndio. O fazendeiro aprende sobre os riscos do uso do fogo e promete mudar. 👨‍🌾🔥';
+    img.src = 'https://cdn.pixabay.com/photo/2015/10/12/15/01/firefighter-984038_1280.jpg';
+    game.innerHTML = `
+      <h1>💪 Final Esperançoso 💪</h1>
+      <img src="${img.src}" alt="Bombeiros controlando o fogo">
+      <p>${story.innerHTML}</p>
+      <p><strong>Mensagem:</strong> Quando trabalhamos juntos, podemos salvar o planeta!</p>
+    `;
+  }
+
+  else if (option === 'fugir') {
+    story.innerHTML = 'Você foge do local e o fogo toma conta da floresta. Sem ajuda, a destruição é enorme. 😔';
+    img.src = 'https://cdn.pixabay.com/photo/2019/09/05/14/53/fire-4456371_1280.jpg';
+    game.innerHTML = `
+      <h1>🔥 Final Triste 🔥</h1>
+      <img src="${img.src}" alt="Floresta destruída">
+      <p>${story.innerHTML}</p>
+      <p><strong>Mensagem:</strong> Ignorar o problema não o faz desaparecer.</p>
+    `;
+  }
+}
+</script>
+</body>
+</html>
